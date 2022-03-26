@@ -32,9 +32,16 @@ function data(){
 }
     ///////////////////////////////////////////////////////////////////////////
 
+    //constants
     const formEl = document.querySelector('form');
     const tbodyEl = document.querySelector('tbody');
     const tableEl = document.getElementById('table')
+
+    //functions
+
+    //this function is for create a new product. 
+    //it's responsable for add a new TR with the information inputed by the user and received in the form.
+    //it will also create a td with a delete button, and the class "delete" is responsable to send delete requisition via element.target
     function createProduct(e){
         e.preventDefault();
         const product = document.getElementById('productName').value;
@@ -60,6 +67,7 @@ function data(){
         alert("Product sucessfully created!");
     }
 
+    //this function delete the row of the product.
     function deleteProduct(e){
     if(e.target.classList.contains('delete')){
         alert("Are you shure you wish delete this product?");
@@ -74,6 +82,8 @@ function data(){
     tableEl.addEventListener('click', deleteProduct);
     btnExport.addEventListener('click', spreadsheet, false);
 
+    
+    //this action is from TableToExcel library and it makes a export on xlsx with the table's content.
     function spreadsheet(e){
         TableToExcel.convert(
             document.getElementById('table')

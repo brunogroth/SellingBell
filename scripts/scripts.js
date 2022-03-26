@@ -32,6 +32,10 @@ btnExport.addEventListener('click', spreadsheet, false);
 btnClean.addEventListener('click', clean,false);
 
 //functions
+
+    //this function is for selling products. 
+    //it's responsable for add +1 in sells counter and add the price of the product in the table, showing amount.
+    //it will also add the value in Total just sinalyzing +1 in Total Function and updating variable values.
     function sell(e){
         if(document.getElementById('classic').checked){
 
@@ -62,8 +66,11 @@ btnClean.addEventListener('click', clean,false);
             Total(1);
         }
     }
-    // undo sales
-    
+
+    //this function is for undo selled products. 
+    //it's responsable for remove '-1' in sells counter of the product and remove the price of the product in the table, updating amount.
+    //if its already 0, its just sinalizing that sum product and sales product are 0.
+    //it will also subtract the value in Total just sinalyzing -1 in Total Function and updating variable values.
     function undo(e){
         if(document.getElementById('classic').checked){
             sumClassic--;
@@ -112,7 +119,8 @@ btnClean.addEventListener('click', clean,false);
         }   
     }
 
-
+    //this function is resposable for update total amount and value of products. 
+    //the 'value' received is only +1 or -1, depending on what function has been called it (sell or undo)
     function Total(value){
         sumTotal += value;
         salesTotal = salesClassic + salesCheddar + salesDouble + salesCrispy;
@@ -121,6 +129,8 @@ btnClean.addEventListener('click', clean,false);
         document.getElementById('priceTotal').innerHTML = salesTotal.toFixed(2);
     }
 
+    //the unique function of this function is clean all data from table.
+    //this action is irreversible.
     function clean(e){
     sumClassic=0;
     sumCheddar=0;
@@ -143,6 +153,8 @@ btnClean.addEventListener('click', clean,false);
     document.getElementById('resultCountTotal').innerHTML = sumTotal;
     document.getElementById('priceTotal').innerHTML = salesTotal.toFixed(2);
     }
+
+    //this action is from TableToExcel library and it makes a export on xlsx with the table's content.
     function spreadsheet(e){
         TableToExcel.convert(document.getElementById('table'));
     }
