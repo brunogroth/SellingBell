@@ -1,18 +1,15 @@
 // variables
 
-    //default values
+    //default values and quantitys
 let classicValue=13.90;
+let quantityClassic = 95;
 let cheddarValue=15.90;
-let doubleValue=18.90;
-let crispyValue=17.90;
-
-    //default quantitys
-let quantityClassic=95;
 let quantityCheddar=43;
+let doubleValue=18.90;
 let quantityDouble=15;
+let crispyValue=17.90;
 let quantityCrispy=50;
 
-//declaration of button for table products export  
 let btnExport = document.getElementById('spreadsheet');
 //functions
 
@@ -42,21 +39,12 @@ function data(){
         const value = document.getElementById('value').value;
         tbodyEl.innerHTML += `
         <tr>
-            <td>
-                ${product}
-            </td>
-            <td>
-                ${quantity}
-            </td>
-            <td>
-                ${value}
-            </td>
-            <td>
-                <button class="btn btn-danger delete">Delete</button>
-            </td>
+            <td>${product}</td>
+            <td>${quantity}</td>
+            <td>${value}</td>
+            <td><button class="btn btn-danger delete">Delete</button></td>
         </tr>
         `;
-
         alert("Product sucessfully created!");
     }
 
@@ -75,8 +63,6 @@ function data(){
     btnExport.addEventListener('click', spreadsheet, false);
 
     function spreadsheet(e){
-        TableToExcel.convert(
-            document.getElementById('table')
-        );
+        TableToExcel.convert(document.getElementById('table'));
     }
     
