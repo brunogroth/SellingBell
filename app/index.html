@@ -17,9 +17,9 @@
         <h1 class="my-3"><img src="../img/logo.png" width="80px"> SellingBell - Home</h1>
     </header>
   
-    <form>
-        <div class="card-header col-xl-6"><strong>Menu</strong></div>
-        <ul class="card menu col-xl-6">
+    <div class="card-header col-xl-6"><strong>Menu</strong></div>
+    <form class="col-xl-6">
+        <ul class="card menu">
             <div class="my-3 form-check">
                 <section>
                 <li>
@@ -42,15 +42,15 @@
             </li>
             </div>
         </section>
-
-        </ul>
-    </form>
-    <section>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end col-xl-6 my-4 ">
-            <button class="btn btn-success mx-2" id="sell">Sell</button>
-            <button class="btn btn-danger"       id="undo">Return selling</button>
-        </div>
-    </section>
+        
+    </ul>
+</form>
+<section>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end col-xl-6 my-4 ">
+        <button class="btn btn-success" id="sell">Sell</button>
+        <button class="btn btn-danger"  id="undo">Return selling</button>
+    </div>
+</section>
     <section id="table">
         <table class="table table-bordered text-center">
             <tr>
@@ -90,6 +90,7 @@
             <button class="btn btn-primary mx-2" id="spreadsheet"><img src="/img/spreadsheet.png" width="20px"> Export to Excel</button>
         </div>
     </div>
+
  
     <script>includeHTML();</script>
 </body>

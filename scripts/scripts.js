@@ -14,10 +14,16 @@ let salesDouble=0.00;
 let salesCrispy=0.00;
 let salesTotal=0.00;
 
+let classicPrice=13.90;
+let cheddarPrice=15.90;
+let doublePrice=18.90;
+let crispyPrice=17.90;
+
 let btnSell = document.getElementById('sell');
 let btnReturn = document.getElementById('undo');
 let btnExport = document.getElementById('spreadsheet');
 let btnClean = document.getElementById('clean');
+
 
 //events
 btnSell.addEventListener('click', sell, false);
@@ -30,27 +36,27 @@ btnClean.addEventListener('click', clean,false);
         if(document.getElementById('classic').checked){
 
             sumClassic++;
-            salesClassic += 12.90;
+            salesClassic += classicPrice;
             document.getElementById('resultCountClassic').innerHTML = sumClassic;
             document.getElementById('priceClassic').innerHTML = salesClassic.toFixed(2);
             Total(1);
         } else if(document.getElementById('cheddar').checked){
             sumCheddar++;
-            salesCheddar += 15.90;
+            salesCheddar += cheddarPrice;
             document.getElementById('resultCountCheddar').innerHTML = sumCheddar;
             document.getElementById('priceCheddar').innerHTML = salesCheddar.toFixed(2);
             Total(1);
 
         } else if(document.getElementById('double').checked){
             sumDouble++;
-            salesDouble += 18.90;
+            salesDouble += doublePrice;
             document.getElementById('resultCountDouble').innerHTML = sumDouble;
             document.getElementById('priceDouble').innerHTML = salesDouble.toFixed(2);
             Total(1);
 
         } else if(document.getElementById('crispy').checked){
             sumCrispy++;
-            salesCrispy += 17.90;
+            salesCrispy += crispyPrice;
             document.getElementById('resultCountCrispy').innerHTML = sumCrispy;
             document.getElementById('priceCrispy').innerHTML = salesCrispy.toFixed(2);
             Total(1);
@@ -61,7 +67,7 @@ btnClean.addEventListener('click', clean,false);
     function undo(e){
         if(document.getElementById('classic').checked){
             sumClassic--;
-            salesClassic -= 12.90;
+            salesClassic -= classicPrice;
             if(sumClassic<0){
                 sumClassic=0;
                 salesClassic=0.00;
@@ -72,7 +78,7 @@ btnClean.addEventListener('click', clean,false);
             }
         } else if(document.getElementById('cheddar').checked){
             sumCheddar--;
-            salesCheddar -= 15.90;
+            salesCheddar -= cheddarPrice;
             if(sumCheddar<0){
                 sumCheddar=0;
                 salesCheddar=0.00;
@@ -83,7 +89,7 @@ btnClean.addEventListener('click', clean,false);
             }
         } else if(document.getElementById('double').checked){
             sumDouble--;
-            salesDouble -= 18.90;
+            salesDouble -= doublePrice;
             if(sumDouble<0){
                 sumDouble=0;
                 salesDouble=0.00;
@@ -94,7 +100,7 @@ btnClean.addEventListener('click', clean,false);
             }
         } else if(document.getElementById('crispy').checked){
             sumCrispy--;
-            salesCrispy -= 17.90;
+            salesCrispy -= crispyPrice;
             if(sumCrispy<0){
                 sumCrispy=0;
                 salesCrispy=0.00;
@@ -136,7 +142,6 @@ btnClean.addEventListener('click', clean,false);
     document.getElementById('priceCrispy').innerHTML = salesCrispy.toFixed(2);
     document.getElementById('resultCountTotal').innerHTML = sumTotal;
     document.getElementById('priceTotal').innerHTML = salesTotal.toFixed(2);
-
     }
     function spreadsheet(e){
         TableToExcel.convert(document.getElementById('table'));

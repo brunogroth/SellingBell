@@ -13,52 +13,78 @@
     <div class="container">    
         <header>
             <div include-html="nav.html"></div>
-            <h1 class="my-3"><img src="../img/logo.png" width="80px"> SellingBell - Menu</h1>
+            <h1 class="my-3"><img src="../img/logo.png" width="80px"> SellingBell - Products</h1>
         </header>
-        <div class="container">
-        <h2>Products</h2>
+        
+        <div class="card mb-5 col-8">
+        <h2 class="m-4">Register new product</h2>
+        <form class="col-9">
+            <div class="m-3">
+              <label for="productName" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="productName">
+            </div>
+            <div class="m-3">
+                <label for="productName" class="form-label">Avaliable Quantity</label>
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" id="avaliableQuantity">
+                    <span class="input-group-text">un</span>
+                </div>
+              </div>
+              <div class="m-3">
+                <label for="productName" class="form-label">Product Value</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="value">
+                    <span class="input-group-text">.00</span>
+                  </div>
+              </div>
+            <button type="submit" name="submit" class="btn btn-primary m-3">Create product</button>
+          </form>
+        </div>
         <section id="table">
-            <table class="table table-bordered text-center">
-                <tr>
+            <table class="table table-bordered text-center ">
+                <tr class="table-active">
                     <th>Product</th>
-                    <th>Sales Amount</th>
+                    <th>Available Quantity</th>
                     <th>Value</th>
+                    <th>Delete</th>
                 </tr>
-                <tr>
-                    <td>Classic Burger</td>
-                    <td id="resultCountClassic"></td>
-                    <td id="priceClassic"></td>
-                </tr>
-                <tr>
-                    <td>Cheddar Bacon</td>
-                    <td id="resultCountCheddar"></td>
-                    <td id="priceCheddar"></td>
-                </tr>
-                <tr>
-                    <td>Double Bacon</td>
-                    <td id="resultCountDouble"></td>
-                    <td id="priceDouble"></td>
-                </tr>
-                <tr>
-                    <td>Crispy Bacon Burger</td>
-                    <td id="resultCountCrispy"></td>
-                    <td id="priceCrispy"></td>
-                </tr>
-                <tr class="table-success">
-                    <td><strong>Total</strong></td>
-                    <td id="resultCountTotal"></td>
-                    <td id="priceTotal"></td>
-                </tr>
+                
+                    <tr>
+                        <td>Classic Burger</td>
+                        <td id="quantityClassic"></td>
+                        <td id="classicValue"></td>
+                        <td><button class="btn btn-danger delete">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Cheddar Bacon</td>
+                        <td id="quantityCheddar"></td>
+                        <td id="cheddarValue"></td>
+                        <td><button class="btn btn-danger delete">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Double Bacon</td>
+                        <td id="quantityDouble"></td>
+                        <td id="doubleValue"></td>
+                        <td><button class="btn btn-danger delete">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Crispy Bacon Burger</td>
+                        <td id="quantityCrispy"></td>
+                        <td id="crispyValue"></td>
+                        <td><button class="btn btn-danger delete">Delete</button></td>
+                    </tr>
+                <tbody>
+                </tbody>
             </table>
         </section>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end my-4">
                 <button class="btn btn-primary mx-2" id="spreadsheet">Export to Excel</button>
             </div>
         </div>
-    </div>
-
-</body>
+ </body>
     <script src="../scripts/includeHTML.js"></script>  
-    <script>includeHTML();</script>
     <script src="../scripts/products.js"></script>    
+    <script> includeHTML(); </script>
+    <script> data(); </script>
 </html>
