@@ -11,19 +11,20 @@
 <body>
     <div class="container">    
     <header>
-        <nav class="nav nav-pills flex-column flex-sm-row">
-            <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Active</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="#">Longer nav link</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+        <nav class="nav nav-pills flex-column flex-sm-row ">
+            <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Home</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="#">Cardápio</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="#">Clientes</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="#">Configurações</a>
           </nav>
         <h1 class="my-3"><img src="../img/logo.png" width="80px"> SellingBell - Home</h1>
     </header>
   
     <form>
-        <div class="card-header"><strong>Menu</strong></div>
-        <ul class="card menu col-6">
+        <div class="card-header col-xl-6"><strong>Menu</strong></div>
+        <ul class="card menu col-xl-6">
             <div class="my-3 form-check">
+                <section>
                 <li>
                     <input type="radio" id="classic" name="product"><label class="btn btn-primary" for="classic">Classic Burger</label>
                 </li>
@@ -35,7 +36,7 @@
             </div>
             <div class="mb-3 form-check">
                 <li>
-                    <input type="radio" id="double" name="product" class=""><label class="btn btn-primary"for="double">Double Bacon</label>
+                    <input type="radio" id="double" name="product" ><label class="btn btn-primary" for="double">Double Bacon</label>
                 </li>
             </div>
             <div class="mb-3 form-check">
@@ -43,12 +44,17 @@
                 <input type="radio" id="crispy" name="product"><label class="btn btn-primary" for="crispy">Crispy Bacon Burger</label>
             </li>
             </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end m-4">
-                <button class="btn btn-success mx-2" id="vendas">Sell</button><button class="btn btn-danger" id="estorno">Return selling</button>
-            </div>
+        </section>
+
         </ul>
     </form>
-    <table class="table table-bordered">
+    <section>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end col-xl-6 my-4 ">
+            <button class="btn btn-success mx-2" id="sell">Sell</button>
+            <button class="btn btn-danger"       id="undo">Return selling</button>
+        </div>
+    </section>
+    <table class="table table-bordered text-center">
         <tr>
             <th>Product</th>
             <th>Sales Amount</th>
@@ -56,29 +62,37 @@
         </tr>
         <tr>
             <td>Classic Burger</td>
-            <td></td>
-            <td></td>
+            <td id="resultCountClassic"></td>
+            <td id="priceClassic"></td>
         </tr>
         <tr>
             <td>Cheddar Bacon</td>
-            <td></td>
-            <td></td>
+            <td id="resultCountCheddar"></td>
+            <td id="priceCheddar"></td>
         </tr>
         <tr>
             <td>Double Bacon</td>
-            <td></td>
-            <td></td>
+            <td id="resultCountDouble"></td>
+            <td id="priceDouble"></td>
         </tr>
         <tr>
             <td>Crispy Bacon Burger</td>
-            <td></td>
-            <td></td>
+            <td id="resultCountCrispy"></td>
+            <td id="priceCrispy"></td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td id="resultCountTotal"></td>
+            <td id="priceCrispy"></td>
         </tr>
     </table>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end my-4">
             <button class="btn btn-primary mx-2" id="export">Export to Excel</button>
         </div>
     </div>
+
+
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="../scripts/scripts.js"></script>
