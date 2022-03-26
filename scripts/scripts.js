@@ -15,45 +15,45 @@ let salesTotal=0.00;
 
 let btnSell = document.getElementById('sell');
 let btnReturn = document.getElementById('undo');
-let btnExport = document.getElementById('export');
+let btnExport = document.getElementById('spreadsheet');
 
 //events
 btnSell.addEventListener('click', sell, false);
 btnReturn.addEventListener('click', undo, false);
-// btnExport.addEventListener('click', export, false);
+btnExport.addEventListener('click', spreadsheet, false);
 
 //functions
-function sell(e){
-    if(document.getElementById('classic').checked){
+    function sell(e){
+        if(document.getElementById('classic').checked){
 
-        sumClassic++;
-        salesClassic += 12.90;
-        document.getElementById('resultCountClassic').innerHTML = sumClassic;
-        document.getElementById('priceClassic').innerHTML = salesClassic.toFixed(2);
-        Total(1);
-    } else if(document.getElementById('cheddar').checked){
-        sumCheddar++;
-        salesCheddar += 15.90;
-        document.getElementById('resultCountCheddar').innerHTML = sumCheddar;
-        document.getElementById('priceCheddar').innerHTML = salesCheddar.toFixed(2);
-        Total(1);
+            sumClassic++;
+            salesClassic += 12.90;
+            document.getElementById('resultCountClassic').innerHTML = sumClassic;
+            document.getElementById('priceClassic').innerHTML = salesClassic.toFixed(2);
+            Total(1);
+        } else if(document.getElementById('cheddar').checked){
+            sumCheddar++;
+            salesCheddar += 15.90;
+            document.getElementById('resultCountCheddar').innerHTML = sumCheddar;
+            document.getElementById('priceCheddar').innerHTML = salesCheddar.toFixed(2);
+            Total(1);
 
-    } else if(document.getElementById('double').checked){
-        sumDouble++;
-        salesDouble += 18.90;
-        document.getElementById('resultCountDouble').innerHTML = sumDouble;
-        document.getElementById('priceDouble').innerHTML = salesDouble.toFixed(2);
-        Total(1);
+        } else if(document.getElementById('double').checked){
+            sumDouble++;
+            salesDouble += 18.90;
+            document.getElementById('resultCountDouble').innerHTML = sumDouble;
+            document.getElementById('priceDouble').innerHTML = salesDouble.toFixed(2);
+            Total(1);
 
-    } else if(document.getElementById('crispy').checked){
-        sumCrispy++;
-        salesCrispy += 17.90;
-        document.getElementById('resultCountCrispy').innerHTML = sumCrispy;
-        document.getElementById('priceCrispy').innerHTML = salesCrispy.toFixed(2);
-        Total(1);
+        } else if(document.getElementById('crispy').checked){
+            sumCrispy++;
+            salesCrispy += 17.90;
+            document.getElementById('resultCountCrispy').innerHTML = sumCrispy;
+            document.getElementById('priceCrispy').innerHTML = salesCrispy.toFixed(2);
+            Total(1);
+        }
     }
-}
-    // Return selling
+    // undo sales
     
     function undo(e){
         if(document.getElementById('classic').checked){
@@ -110,4 +110,8 @@ function sell(e){
 
         document.getElementById('resultCountTotal').innerHTML = sumTotal;
         document.getElementById('priceTotal').innerHTML = salesTotal.toFixed(2);
+    }
+
+    function spreadsheet(e){
+        TableToExcel.convert(document.getElementById('table'));
     }
