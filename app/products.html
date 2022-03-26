@@ -26,7 +26,7 @@
             <div class="m-3">
                 <label for="productName" class="form-label">Avaliable Quantity</label>
                 <div class="input-group mb-3">
-                    <input type="number" class="form-control" id="avaliableQuantity">
+                    <input type="number" class="form-control" id="avaliableQuantity" step="0.01">
                     <span class="input-group-text">un</span>
                 </div>
               </div>
@@ -34,8 +34,7 @@
                 <label for="productName" class="form-label">Product Value</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text">$</span>
-                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="value">
-                    <span class="input-group-text">.00</span>
+                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" step="0.01" id="value">
                   </div>
               </div>
             <button type="submit" name="submit" class="btn btn-primary m-3">Create product</button>
@@ -49,7 +48,7 @@
                     <th>Value</th>
                     <th>Delete</th>
                 </tr>
-                
+                <tbody>
                     <tr>
                         <td>Classic Burger</td>
                         <td id="quantityClassic"></td>
@@ -74,7 +73,6 @@
                         <td id="crispyValue"></td>
                         <td><button class="btn btn-danger delete">Delete</button></td>
                     </tr>
-                <tbody>
                 </tbody>
             </table>
         </section>
@@ -83,8 +81,10 @@
             </div>
         </div>
  </body>
-    <script src="../scripts/includeHTML.js"></script>  
-    <script src="../scripts/products.js"></script>    
-    <script> includeHTML(); </script>
-    <script> data(); </script>
+ 
+ <script src="../scripts/includeHTML.js"></script>  
+ <script src="../scripts/tableToExcel.js"></script>  
+ <script src="../scripts/products.js"></script>  
+ <script> data(); </script>
+ <script> includeHTML(); </script>
 </html>

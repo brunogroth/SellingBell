@@ -9,6 +9,8 @@ let doubleValue=18.90;
 let quantityDouble=15;
 let crispyValue=17.90;
 let quantityCrispy=50;
+
+let btnExport = document.getElementById('spreadsheet');
 //functions
 
 function data(){
@@ -24,9 +26,7 @@ function data(){
     document.getElementById('quantityCheddar').innerHTML = quantityCheddar;
     document.getElementById('quantityDouble').innerHTML = quantityDouble;
     document.getElementById('quantityCrispy').innerHTML = quantityCrispy;
-
 }
-
     ///////////////////////////////////////////////////////////////////////////
 
     const formEl = document.querySelector('form');
@@ -45,6 +45,7 @@ function data(){
             <td><button class="btn btn-danger delete">Delete</button></td>
         </tr>
         `;
+        alert("Product sucessfully created!");
     }
 
     function deleteProduct(e){
@@ -59,6 +60,9 @@ function data(){
     //events
     formEl.addEventListener('submit', createProduct);
     tableEl.addEventListener('click', deleteProduct);
+    btnExport.addEventListener('click', spreadsheet, false);
 
-    ////////////////////////////////////////////////////
+    function spreadsheet(e){
+        TableToExcel.convert(document.getElementById('table'));
+    }
     
