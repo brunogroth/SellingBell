@@ -17,11 +17,13 @@ let salesTotal=0.00;
 let btnSell = document.getElementById('sell');
 let btnReturn = document.getElementById('undo');
 let btnExport = document.getElementById('spreadsheet');
+let btnClean = document.getElementById('clean');
 
 //events
 btnSell.addEventListener('click', sell, false);
 btnReturn.addEventListener('click', undo, false);
 btnExport.addEventListener('click', spreadsheet, false);
+btnClean.addEventListener('click', clean,false);
 
 //functions
     function sell(e){
@@ -64,9 +66,9 @@ btnExport.addEventListener('click', spreadsheet, false);
                 sumClassic=0;
                 salesClassic=0.00;
             }else{
-            document.getElementById('resultCountClassic').innerHTML = sumClassic;
-            document.getElementById('priceClassic').innerHTML = salesClassic.toFixed(2);
-            Total(-1);
+                document.getElementById('resultCountClassic').innerHTML = sumClassic;
+                document.getElementById('priceClassic').innerHTML = salesClassic.toFixed(2);
+                Total(-1);
             }
         } else if(document.getElementById('cheddar').checked){
             sumCheddar--;
@@ -113,6 +115,29 @@ btnExport.addEventListener('click', spreadsheet, false);
         document.getElementById('priceTotal').innerHTML = salesTotal.toFixed(2);
     }
 
+    function clean(e){
+    sumClassic=0;
+    sumCheddar=0;
+    sumDouble=0;
+    sumCrispy=0;
+    sumTotal=0;
+    salesClassic=0.00;
+    salesCheddar=0.00;
+    salesDouble=0.00;
+    salesCrispy=0.00;
+    salesTotal=0.00;
+    document.getElementById('resultCountClassic').innerHTML = sumClassic;
+    document.getElementById('priceClassic').innerHTML = salesClassic.toFixed(2);
+    document.getElementById('resultCountCheddar').innerHTML = sumCheddar;
+    document.getElementById('priceCheddar').innerHTML = salesCheddar.toFixed(2);
+    document.getElementById('resultCountDouble').innerHTML = sumDouble;
+    document.getElementById('priceDouble').innerHTML = salesDouble.toFixed(2);
+    document.getElementById('resultCountCrispy').innerHTML = sumCrispy;
+    document.getElementById('priceCrispy').innerHTML = salesCrispy.toFixed(2);
+    document.getElementById('resultCountTotal').innerHTML = sumTotal;
+    document.getElementById('priceTotal').innerHTML = salesTotal.toFixed(2);
+
+    }
     function spreadsheet(e){
         TableToExcel.convert(document.getElementById('table'));
     }
