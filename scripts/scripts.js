@@ -1,5 +1,6 @@
 'use strict';
 
+
 //variables
 let sumClassic=0;
 let sumCheddar=0;
