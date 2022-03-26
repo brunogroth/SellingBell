@@ -5,3 +5,8 @@
 label{
     margin-left: 10px;
 }
+
+.button{
+    display: block;
+    color:red;
+}
