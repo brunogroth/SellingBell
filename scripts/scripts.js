@@ -5,11 +5,13 @@ let sumClassic=0;
 let sumCheddar=0;
 let sumDouble=0;
 let sumCrispy=0;
+let sumTotal=0;
 
 let salesClassic=0.00;
 let salesCheddar=0.00;
 let salesDouble=0.00;
 let salesCrispy=0.00;
+let salesTotal=0.00;
 
 let btnSell = document.getElementById('sell');
 let btnReturn = document.getElementById('return');
@@ -27,24 +29,35 @@ function sell(e){
         salesClassic += 12.90;
         document.getElementById('resultCountClassic').innerHTML = sumClassic;
         document.getElementById('priceClassic').innerHTML = salesClassic.toFixed(2);
+        Total(1, salesClassic);
 
     } else if(document.getElementById('cheddar').checked){
         sumCheddar++;
         salesCheddar += 15.90;
         document.getElementById('resultCountCheddar').innerHTML = sumCheddar;
         document.getElementById('priceCheddar').innerHTML = salesCheddar.toFixed(2);
+        Total(1, salesCheddar);
 
     } else if(document.getElementById('double').checked){
         sumDouble++;
         salesDouble += 18.90;
         document.getElementById('resultCountDouble').innerHTML = sumDouble;
         document.getElementById('priceDouble').innerHTML = salesDouble.toFixed(2);
+        Total(1, salesDouble);
 
     } else if(document.getElementById('crispy').checked){
         sumCrispy++;
         salesCrispy += 17.90;
         document.getElementById('resultCountCrispy').innerHTML = sumCrispy;
         document.getElementById('priceCrispy').innerHTML = salesCrispy.toFixed(2);
+        Total(1, salesCrispy);
     }
 
+    function Total(sum){
+        sumTotal += sum;
+        salesTotal = salesClassic + salesCheddar + salesDouble + salesCrispy;
+
+        document.getElementById('resultCountTotal').innerHTML = sumTotal;
+        document.getElementById('priceTotal').innerHTML = salesTotal.toFixed(2);
+    }
 }
